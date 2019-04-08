@@ -522,7 +522,7 @@ static void Field(FieldParseContext *ctx)
     break;
   case 1:  // quoted with embedded quotes escaped; the final unescaped " must be followed by sep|eol
     while (*++ch) {
-      if (*ch=='\\' && (ch[1]==quote || ch[1]=='\\')) { ch++; continue; }
+      if (*ch=='\\' && (ch[1]==quote || ch[1]=='\\' || ch[2]==sep)) { ch++; continue; }
       if (*ch==quote) break;
     }
     break;
